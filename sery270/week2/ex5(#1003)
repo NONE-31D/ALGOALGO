@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main() {
+	//피보나치 수열 배열
+	unsigned F[41];
+	F[0] = 0;
+	F[1] = 1;
+	for (int i = 2; i < 41; i++) {
+		F[i] = F[i-1] + F[i-2];
+	}
+
+	int testcase;
+	scanf("%d",&testcase);
+	int* n;
+	n = (int*)malloc(sizeof(int)*testcase);
+	for (int i = 0; i < testcase; i++) {
+		scanf("%d", &n[i]);
+	}
+
+	for (int i = 0; i < testcase; i++) {
+		if (n[i] == 0) {
+			printf("1 0\n");
+			continue;
+		}
+		printf("%d %d\n",F[n[i]-1],F[n[i]]);
+
+	}
+
+	free(n);
+
+
+
+	return 0;
+}
