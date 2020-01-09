@@ -1,51 +1,34 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
 
-	int m, n;
+	int M, N;
+	bool* array;
 
-	scanf("%d %d", &m, &n);
+	scanf("%d %d", &M, &N);
+	array = (bool*)malloc(sizeof(bool)*(N+1));
+	//인덱스가 소수인지 검사할 대상을 의미함
+	//따라서 n+1크기 만큼 할당해주어야, n까지 검사할 수 있음
 
-	//m이 1이나 2, 혹은 짝수일 경우를 고려함
-	while (1) {
-		switch (m)
-		{
-		case 1:
-			m += 1;
-			continue;
-		case 2:
-			printf("%d\n", m);
-			m += 1;
-			continue;
-		default:
-			if (m % 2 == 0) {
-				m += 1;
-				break;
-			}
-			else {
-				break;
-			}
-		}
-		break;
+	//배열을 초기화 시킴
+	//true는 소수임을 의미함
+	for (int i = 0; i < N + 1 ; i++) {
+		array[i] = true;
 	}
-
-	for (int i = m; i <= n; i += 2) { //2을 제외한 짝수는 소수가 될 수 없음, m이 2일땐 위에서 출력했음
-		if (i == 3) {
-			printf("%d\n", i);
-			continue;
-		}
-		for (int j = 3; j <= i - 2; j += 2) {
-			if (i % j == 0) {
-				break;
+	
+	for (int p = 2; p < N + 1; p++) { //검사할 대상 반복 
+		if (array[p]) { //검사할 대상이 소수일 때만, 실질적인 동작 실행
+			for (int n =2; n < N/p+1; n++) {
+				array[n*p] = false;
 			}
-			if (j >= i - 2) {
-				printf("%d\n", i);
-			}
-
 		}
-
 	}
-
+	for (int p = M; p < N + 1; p++) { 
+		if (array[p]) { //검사할 대상이 소수일 때만, 출력
+			printf("%d\n",p);
+		}
+	}
 
 	return 0;
 }
