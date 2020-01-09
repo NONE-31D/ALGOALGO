@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 int main() {
 
 	int a, b, c;
@@ -9,15 +10,7 @@ int main() {
 	
 	if (c > b)
 	{
-		while (true)
-		{
-			n += 1;
-			if (c*n > a + b*n) {
-				break;
-			}
-			
-
-		}
+		n = a / (c - b) + 1;
 	} 
 
 	printf("%d", n);
