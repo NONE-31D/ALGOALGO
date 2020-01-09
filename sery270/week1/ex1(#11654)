@@ -1,0 +1,22 @@
+import java.util.Scanner;
+import java.io.IOException;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		
+		char c = 0;
+		int i = 0;
+
+		i = System.in.read();
+		
+		
+		if (0 <=  i&& 9 >=i) {
+			i = i + 48;
+		}
+		
+		System.out.println(i);
+	}
+
+}
