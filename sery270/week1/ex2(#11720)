@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+
+public class Main {
+
+	public static void main(String[] args){
+		// TODO Auto-generated method stub
+		
+		int c = 0;
+		String i;
+		int sum = 0;
+		
+		
+		
+		Scanner in = new Scanner(System.in);
+		c = in.nextInt();
+		i = in.next();
+		
+		for (int j = 0; j < c; j++) {
+			sum += ((int)i.charAt(j)-48);
+		}
+		
+		System.out.println(sum);
+	}
+
+}
