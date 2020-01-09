@@ -16,14 +16,22 @@ int main() {
 	for (int i = 0; i < N + 1 ; i++) {
 		array[i] = true;
 	}
+	array[0] = false; //소수는 자연수임
+	array[1] = false; //1은 소수가 아님
 	
 	for (int p = 2; p < N + 1; p++) { //검사할 대상 반복 
 		if (array[p]) { //검사할 대상이 소수일 때만, 실질적인 동작 실행
-			for (int n =2; n < N/p+1; n++) {
-				array[n*p] = false;
+			if ((p ^ 2) > N + 1) { //에라토스테네스의 체 정의, 또다른 탈출조건
+				break;
+			}
+			else {
+				for (int n = 2; n < N/p+1; n++) {
+					array[n*p] = false;
+				}
 			}
 		}
 	}
+
 	for (int p = M; p < N + 1; p++) { 
 		if (array[p]) { //검사할 대상이 소수일 때만, 출력
 			printf("%d\n",p);
