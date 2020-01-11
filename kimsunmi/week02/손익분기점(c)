@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main(){
+    int A,B,C,BC;
+    //A:고정비용
+    //B:가변비용
+    //C:총 수입, 판매비용
+    scanf("%d %d %d",&A,&B,&C);
+    BC=C-B; //판매비용과 가변비용의 차이가 음수인 경우 이익이 날 수 없다.
+    if(BC>0) printf("%d",A/BC+1); // 순수이익이 고정비용을 넘는 경우의 판매량
+    else printf("-1");
+    return 0;
+}
