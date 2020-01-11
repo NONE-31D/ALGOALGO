@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+int main(void) {
+	int A = 0;
+	int B = 0;
+	int C = 0;
+	int n = 1;
+
+	scanf("%d %d %d", &A, &B, &C);
+
+  //가변비용이 물건의 가격보다 비싼 경우는 이익을 볼 수 없다
+	if (B >= C) {
+		printf("-1");
+	}
+	else {
+    //판매량 계산
+		printf("%d\n", A / (C - B) + 1); //밑의 주석처리된 식 참고
+	}
+	return 0;
+}
+
+//a+b*n<c*n
+//a<(c-b)*n
+//n>a/(c-b)
