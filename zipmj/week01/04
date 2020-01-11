@@ -1,0 +1,55 @@
+#include<stdio.h>
+#define MAX 1000000
+
+int arr2[MAX];
+int N;
+
+//값을 바꿔주는 swap함수
+void swap(int* a, int* b) {
+	int tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+//퀵정렬 함수
+void quicksort(int left, int right, int* num) {
+	int p = num[(left + right) / 2]; //중간 값 선언
+	int i = left; //가장 왼쪽부터 원소의 위치
+	int j = right; //가장 오른쪽부터 원소의 위치
+
+	while (i <= j) {
+		//중간 값 보다 큰 수를 찾을 때까지 오른쪽으로 증가
+		while (p > num[i]) i++;
+		//중간 값 보다 작은 수를 찾을 때까지 왼쪽으로 감소
+		while (p < num[j]) j--;
+
+		//i와 j모두 서로 swap할 원소를 찾았을 때
+		if (i <= j) {
+			swap(&num[i], &num[j]);
+			i++;
+			j--;
+		}
+	}
+	//중간 값의 왼쪽 배열원소들로 퀵정렬 진행
+	if (left < j) quicksort(left, j, arr2);
+	//중간 값의 오른쪽 배열원소들로 퀵정렬 진행
+	if (i < right) quicksort(i, right, arr2);
+  }
+  
+  int main() {
+	scanf("%d", &N);
+
+	//정수 입력받음
+	for (int i = 0; i < N; i++) {
+		scanf("%d", &arr2[i]);
+	}
+	//퀵정렬 함수 실행
+	quicksort(0, N-1, arr2);
+
+	//배열 출력
+	for (int i = 0; i < N; i++) {
+		printf("%d\n", arr2[i]);
+	}
+
+	return 0;
+}
