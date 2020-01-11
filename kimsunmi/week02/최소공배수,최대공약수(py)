@@ -1,0 +1,20 @@
+def GCD(x,y): // 최대공약수 구하는 함수
+    if x<y: //x가 큰 쪽으로 swap
+        tmp=x
+        x=y
+        y=tmp
+
+    if x%y==0: // y로 나눠서 0이 되는 경우 y값이 최대 공약수
+        gcd=y
+    else: 
+        gcd=GCD(y,x%y) // 아니라면 y를 나머지로 다시 구하기
+    
+    return gcd
+x,y = input().split()
+x=int(x)
+y=int(y)
+
+max=GCD(x,y)
+print(min)
+print(int(x*y/max)) // 최소공배수는 서로 곱한값을 최대공약수로 나눈 값
+
