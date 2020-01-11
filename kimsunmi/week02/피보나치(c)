@@ -1,0 +1,52 @@
+#include<stdio.h>
+int f_zero[100] = { 0 }; // 0이 나오는 갯수 저장
+int f_one[100] = { 0 }; // 1이 나오는 갯수 저장
+int Fib_zero(int n) { //n엣 0이 나오는 갯수 구하는 함수
+	if (f_zero[n] == 0) { //배열 검사하여 초기값이 아니라면 값 구하기
+		if (n == 1) {
+			return 0;
+		}
+		if (n == 0) {
+			return 1;
+		}
+		else {
+			f_zero[n] = Fib_zero(n - 1) + Fib_zero(n - 2); // 그동안 더한 갯수 배열에 저장
+			return Fib_zero(n - 1) + Fib_zero(n - 2);
+		}
+	}
+	else {
+		return f_zero[n]; // 이미 구해진 값이므로 return
+	}
+}
+int Fib_one(int n) { // n에서 1이 나오는 갯수 구하는 함수
+	if (f_one[n] == 0) {
+		if (n == 0) {
+			return 0;
+		}
+		if (n == 1) {
+			return 1;
+		}
+		else {
+			f_one[n] = Fib_one(n - 1) + Fib_one(n - 2);
+			return Fib_one(n - 1) + Fib_one(n - 2);
+		}
+	}
+	else {
+		return f_one[n];
+	}
+}
+int main() {
+	int num, num2;
+	int answer[100] = { 0 }; // 출력할 정답
+	int answer2[100] = { 0 };
+	scanf("%d", &num);
+	for (int i = 0; i < num; i++) {
+		scanf("%d", &num2);
+		answer[i]= Fib_zero(num2); // 구한 값 answer에 저장
+		answer2[i] = Fib_one(num2);
+	}
+	for (int i = 0; i < num; i++) {
+		printf("%d %d\n", answer[i], answer2[i]); 출력
+	}
+
+}
