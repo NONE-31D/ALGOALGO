@@ -1,0 +1,8 @@
+#include<stdio.h>
+
+int main() {
+	char a;
+	scanf("%c", &a); //char형으로 받고
+	printf("%d\n", a); //int형으로 출력하면 아스키코드 값 출력
+	return 0;
+}
