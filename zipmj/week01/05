@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+int arr3[10001]; //배열 선언, 1부터 10000까지의 숫자의 개수가 저장됨
+
+int main() {
+	int N = 0; //입력할 수의 개수
+	int num = 0; //입력받는 수이자 배열 arr3의 원소 번호
+
+	scanf("%d", &N);
+
+	//N개의 수를 입력받으면서 배열 arr3에서 해당되는 원소의 값을 증가시킴
+	for (int i = 0; i < N; i++) {
+		scanf("%d", &num);
+		arr3[num]++;
+	}
+	
+	for (num = 1; num < 10001; num++) {
+		//배열 중에 원소가 있으면 있는 수 만큼 값 출력
+		if (arr3[num] != NULL) {
+			for (int j = 0; j < arr3[num]; j++) {
+				printf("%d\n", num);
+			}
+		}
+	}
+	return 0;
+}
