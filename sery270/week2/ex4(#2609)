@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int gcdFun(int a, int b) {
+	if (b == 0) {
+		return a;
+	}
+	else {
+		return gcdFun(b, a%b);
+	}	
+}
+
+int main() {
+	int a, b;
+
+	scanf("%d %d", &a, &b);
+
+	int gcd, lcm;
+
+	gcd = gcdFun(a, b);
+	lcm = a*b / gcd;
+
+	printf("%d\n%d", gcd, lcm);
+
+	return 0;
+
+}
