@@ -7,7 +7,7 @@ for i in range(2,maxi+1) :
         for j in range(2*i,maxi+1,i) :
             a[j]=0 
             
-a=sorted(list(set(a[mini:]))) // mini보다 큰 인덱스 값들 중복 제거 및 정렬
+a=sorted(list(set(a[mini:]))) // mini보다 큰 인덱스 값들 중복 제거 및 (극단적 입력값 처리를 위해)정렬
 a.remove(0) // 0 제거
 for num in a :
     print(num)
